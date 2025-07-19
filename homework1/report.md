@@ -7,10 +7,10 @@
 本作業有兩個問題：
 
 ### 問題一：Ackermann 函數
-要求分別撰寫遞迴/非遞迴的 Ackermann 函數程式。
+要求撰寫遞迴/非遞迴版本的 Ackermann 函數程式。
 
 ### 解題策略
-1. 直接按照數學定義實現遞迴版本
+1. 直接按照其基本數學定義實現遞迴版本
 2.  
 3. 
 
@@ -26,20 +26,39 @@ Power Set 是一集合內所有子集合組成的集合。
 
 ### 問題一：Ackermann 函數
 
-主要程式碼：
+遞迴版本程式碼：
 
 ```cpp
 #include <iostream>
 
+int A(int m, int n) {
+    if (m == 0) return n + 1;
+    else if (n == 0) return A(m - 1, 1);
+    else return A(m - 1, A(m, n - 1));
+}
+
+int main() {
+    int m, n;
+    while(1) {
+        std::cout << "Enter m and n: ";
+        std::cin >> m >> n;
+        std::cout << "A(" << m << ", " << n << ") = " << A(m, n) << std::endl;
+    }
+}
+```
+
+非遞迴版本程式碼：
+
+```cpp
+#include <iostream>
 ```
 
 ### 問題二：Power Set 生成
 
-主要程式碼：
+程式碼：
 
 ```cpp
 #include <iostream>
-
 ```
 
 ## 效能分析
@@ -54,41 +73,6 @@ Power Set 是一集合內所有子集合組成的集合。
 
 ## 測試與驗證
 
-### 測試案例
-
-### 編譯與執行指令
-
-```shell
-```
-
-### 結論
-
-1. 
-2. 
-3. 
 
 ## 申論及開發報告
 
-### 選擇遞迴的原因
-
-在本程式中，：
-
-1. **程式邏輯簡單直觀**  
-   
-
-   $$
-
-   $$
-
-
-2. **易於理解與實現**  
-   
-
-   ```cpp
-
-   ```
-
-3. **遞迴的語意清楚**  
-   
-
-透過。
