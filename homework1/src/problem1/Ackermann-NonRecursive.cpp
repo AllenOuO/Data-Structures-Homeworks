@@ -9,7 +9,7 @@ int A(int m,int n){
                 return ++n;
 	    }
 	    n++;
-            m=a[i--];
+            m = a[i--];
         }
         if(0 == n){
             m--;
