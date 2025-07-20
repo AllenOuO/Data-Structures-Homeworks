@@ -58,7 +58,7 @@ int A(int m,int n){
     int i = 0;
     while(1){
         if(0 == m){
-            if(0==i){
+            if(0 == i){
                 return ++n;
 	    }
 	    n++;
@@ -69,7 +69,7 @@ int A(int m,int n){
             n++;
         }
         if( 0 != m && 0 != n){
-            a[++i]=m-1;
+            a[++i] = m - 1;
             n--;
         }
     }
