@@ -31,15 +31,16 @@ Power Set 是一集合內所有子集合組成的集合。
 ```cpp
 #include <iostream>
 
-int A(int m, int n) {
+int A(int m, int n);
+int A(int m, int n){
     if (m == 0) return n + 1;
     else if (n == 0) return A(m - 1, 1);
     else return A(m - 1, A(m, n - 1));
 }
 
-int main() {
+int main(){
     int m, n;
-    while(1) {
+    while(1){
         std::cout << "Enter m and n: ";
         std::cin >> m >> n;
         std::cout << "A(" << m << ", " << n << ") = " << A(m, n) << std::endl;
@@ -50,7 +51,38 @@ int main() {
 非遞迴版本程式碼：
 
 ```cpp
-#include <iostream>
+#include<iostream>
+
+int A(int m,int n){
+    int a[100000];
+    int i = 0;
+    while(1){
+        if(0 == m){
+            if(0==i){
+                return ++n;
+	    }
+	    n++;
+            m=a[i--];
+        }
+        if(0 == n){
+            m--;
+            n++;
+        }
+        if( 0 != m && 0 != n){
+            a[++i]=m-1;
+            n--;
+        }
+    }
+}
+
+int main(){
+    int m, n;
+    while(1){
+        std::cout << "Enter m and n: ";
+        std::cin >> m >> n;
+        std::cout << "A(" << m << ", " << n << ") = " << A(m, n) << std::endl;
+    }
+}
 ```
 
 ### 問題二：Power Set 生成
