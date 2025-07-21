@@ -10,15 +10,16 @@
 撰寫遞迴與非遞迴版本的 Ackermann 函數程式。
 
 ### 解題策略
-1. 直接按其基本定義實現遞迴版本
-2. 使用陣列模擬堆疊，實現非遞迴版本
+1. 直接按其基本定義實現遞迴版本。
+2. 使用陣列模擬堆疊，實現非遞迴版本。
 
 ### 問題二：Power Set 生成
 Power Set 是一集合內所有子集合組成的集合。
 
 ### 解題策略
-1. 使用位元運算方式（bitmask）來判斷每個子集合是否包含元素。
-2. 對於長度為 n 的集合，總共有 2^n 個子集合。
+1. 長度為 n 的集合，有 2^n 個子集合。
+2. 將輸入按空格分割成單詞（token），並存入陣列 subs。
+3. 利用位元運算生成子集合。
 
 ## 程式實作
 
@@ -90,31 +91,31 @@ int main(){
 
 int main(){
     std::string line;
-    while(1){
-        std::cout << "Input: ";
-        getline(std::cin, line);
-        std::stringstream ss(line);
-        std::string token;
-        std::string subs[100];
-        int n = 0;
-        while(ss >> token) 
-            subs[n++] = token;
+    std::cout << "Input: ";
+    getline(std::cin, line);
+    std::stringstream ss(line);
+    std::string token;
+    std::string subs[100];
+    int n = 0;
+    while(ss >> token) 
+        subs[n++] = token;
+    std::cout << "{";
+    bool a = true;
+    int total = 1 << n;
+    for(int i = 0; i < total; ++i)
+    {
+        if(!a) 
+            std::cout << ", ";
         std::cout << "{";
-        bool a = true;
-        int total = 1 << n;
-        for(int i = 0; i < total; ++i) {
-            if(!a) 
-                std::cout << ", ";
-            std::cout << "{";
-        for(int j = 0; j < n; ++j) {
-                if (i & (1 << j))
-                 std::cout << subs[j];
-        }
-        std::cout << "}";
-        a = false;
-        }
-        std::cout << "}" << std::endl;
+    for(int j = 0; j < n; ++j)
+    {
+        if (i & (1 << j))
+            std::cout << subs[j];
     }
+    std::cout << "}";
+    a = false;
+    }
+    std::cout << "}" << std::endl;
 }
 ```
 
