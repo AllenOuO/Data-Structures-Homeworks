@@ -24,9 +24,7 @@ int A(int m,int n){
 
 int main(){
     int m, n;
-    while(1){
-        std::cout << "Enter m and n: ";
-        std::cin >> m >> n;
-        std::cout << "A(" << m << ", " << n << ") = " << A(m, n) << std::endl;
-    }
+    std::cout << "Enter m and n: ";
+    std::cin >> m >> n;
+    std::cout << "A(" << m << ", " << n << ") = " << A(m, n) << std::endl;
 }
