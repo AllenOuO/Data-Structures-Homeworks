@@ -3,7 +3,7 @@
 作業二
 
 ## 解題說明
-本作業要求實作一個 Polynomial 類別，並支援多項式輸入與輸出（ >> 與 << 運算子），加法，乘法及取值運算
+本作業要求實作一個 Polynomial 類別，並支援多項式輸入與輸出（ >> 與 << 運算子），加法，乘法及取值運算。
 ### 解題策略
 1. Term 類別包含係數coef與次方數exp。
 2. 同時跑兩個 term 陣列，若次方數相同則加總係數，否則直接加入次方較大的項。
@@ -195,32 +195,26 @@ ostream& operator<<(ostream& out, const Polynomial& poly) {
 
 int main() {
     Polynomial p1, p2;
-
     cout << "P1(x) :\n";
     cin >> p1;
     cout << "P2(x) :\n";
     cin >> p2;
-
     Polynomial sum = p1.Add(p2);
     Polynomial prod = p1.Mult(p2);
-
     cout << "P1(x) = " << p1 << endl;
     cout << "P2(x)= " << p2 << endl;
     cout << "P1 + P2 = " << sum << endl;
     cout << "P1 * P2 = " << prod << endl;
-
     float val;
     cout << "Input x :\n";
     cin >> val;
     cout << "P1(" << val << ") = " << p1.Eval(val) << endl;
-
-    return 0;
 }
 ```
 
 ## 效能分析
 時間複雜度：<br>
-m -> 多項式 P1 項的個數，n -> 多項式 P2 項的個數<br>
+m -> 多項式 P1 項的個數，n -> 多項式 P2 項的個數。<br>
 加法： $O(m + n)$<br>
 乘法： $O(m × n)$<br>
 求值： $O(1)$
