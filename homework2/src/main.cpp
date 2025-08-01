@@ -179,24 +179,18 @@ ostream& operator<<(ostream& out, const Polynomial& poly) {
 
 int main() {
     Polynomial p1, p2;
-
     cout << "P1(x) :\n";
     cin >> p1;
     cout << "P2(x) :\n";
     cin >> p2;
-
     Polynomial sum = p1.Add(p2);
     Polynomial prod = p1.Mult(p2);
-
     cout << "P1(x) = " << p1 << endl;
     cout << "P2(x)= " << p2 << endl;
     cout << "P1 + P2 = " << sum << endl;
     cout << "P1 * P2 = " << prod << endl;
-
     float val;
     cout << "Input x :\n";
     cin >> val;
     cout << "P1(" << val << ") = " << p1.Eval(val) << endl;
-
-    return 0;
 }
