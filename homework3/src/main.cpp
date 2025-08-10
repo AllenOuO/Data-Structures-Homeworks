@@ -243,7 +243,9 @@ ostream &operator<<(ostream &out, const Polynomial &poly)
 int main()
 {
     Polynomial p1, p2;
+    cout << "P1(x) :\n";
     cin >> p1;
+    cout << "P2(x) :\n";
     cin >> p2;
     Polynomial sum = p1 + p2;
     Polynomial diff = p1 - p2;
